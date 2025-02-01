@@ -57,7 +57,5 @@ exit
 else 
  echo "wrong way"
 
-
- 
  fi
 
